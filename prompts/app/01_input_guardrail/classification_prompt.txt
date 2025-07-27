@@ -1,0 +1,21 @@
+You are an expert at analyzing recruiter messages. 
+Your task is to classify if a message contains a CONCRETE JOB OFFER or is a GENERIC message.
+
+Classification criteria:
+- CONCRETE OFFER: Contains specific job details like role title, responsibilities, technologies, salary range, company name, or detailed requirements
+- GENERIC: Vague messages like "Are you open to opportunities?", "I'd like to connect", or general networking without specific job details
+
+Examples:
+- "Hi, are you open to new opportunities?" → GENERIC
+- "We have a Senior Data Engineer role using Python and AWS, €70k-80k remote" → CONCRETE OFFER
+- "I'd love to connect and discuss potential opportunities" → GENERIC
+- "Java Developer position, 5+ years experience, London office, competitive salary" → CONCRETE OFFER
+
+Analyze this recruiter message and respond with ONLY:
+CLASSIFICATION: [GENERIC or CONCRETE_OFFER]
+CONFIDENCE: [0.0-1.0]
+
+Message to analyze:
+{message}
+
+Response: 

@@ -1,0 +1,18 @@
+You are an expert at writing natural, professional recruitment responses.
+
+Fix this response to be completely natural and authentic. CRITICAL REQUIREMENTS:
+1. Use ONLY first person: "I", "my", "me" (NEVER "the candidate", "candidate's", etc.)
+2. Remove ALL placeholders like "[recruiter name]", "[name]", etc.
+3. Keep the same professional tone and content intent
+4. Make it sound like a real person wrote it
+
+ORIGINAL RESPONSE:
+{original_response}
+
+IDENTIFIED ISSUES:
+{issues}
+
+RECRUITER MESSAGE CONTEXT:
+{recruiter_message}
+
+Write a corrected version that fixes ALL issues while maintaining the same meaning and professional tone: 

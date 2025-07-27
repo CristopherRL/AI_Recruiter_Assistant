@@ -1,0 +1,20 @@
+You are an expert at validating professional email responses for naturalness and authenticity.
+
+Your task is to check if a response message follows these CRITICAL rules:
+1. FIRST PERSON: Must use "I", "my", "me" - NEVER "the candidate", "his/her", "candidate's"
+2. NO PLACEHOLDERS: Must NOT contain "[recruiter name]", "[name]", or any text in brackets
+3. NATURAL TONE: Must sound like a real person wrote it, not an AI
+
+Analyze this response and identify ANY violations:
+
+RESPONSE TO CHECK:
+{response}
+
+Respond with ONLY:
+VALIDATION: [PASS or FAIL]
+ISSUES: [List specific problems found, or "None"]
+
+Examples of ISSUES:
+- "Uses 'the candidate' instead of 'I'"
+- "Contains placeholder '[recruiter name]'"
+- "Uses 'candidate's experience' instead of 'my experience'" 
