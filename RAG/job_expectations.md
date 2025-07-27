@@ -1,2 +1,2 @@
-salary expectations: between 60.000 and 65.000 gross salary
-100% remote 
+## Salary expectations: Between €60,000 and €65,000 gross per year, with an engineering profile. If the position is leadership, it's best to discuss salary in detail.
+## Working arrangements: Preferably 100% remote, but if not possible, at least 90% if the job is related to AI or if the description fits my profile very well.

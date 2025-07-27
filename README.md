@@ -1,37 +1,42 @@
 # AI Recruiter Assistant 🤖
 
-An intelligent conversational chatbot designed to pre-screen job offers from recruiters using advanced AI techniques including RAG (Retrieval-Augmented Generation) and fine-tuned language models.
+An intelligent conversational chatbot designed to pre-screen job offers from recruiters using Retrieval-Augmented Generation (RAG) with a powerful open-source Large Language Model.
 
 ## 🎯 Project Overview
 
 This AI assistant automates the initial screening of job offers by:
-1. **Intent Detection**: Analyzing if messages are job offers or generic inquiries
-2. **RAG Analysis**: Comparing job descriptions against your CV and preferences
-3. **Match Scoring**: Calculating compatibility percentages
-4. **Smart Responses**: Generating appropriate responses based on match scores
+1.  **Intent Detection**: Analyzing if messages are job offers or generic inquiries.
+2.  **RAG Analysis**: Augmenting the LLM with real-time context from your CV and job preferences.
+3.  **Match Scoring**: Calculating a compatibility score based on the provided context.
+4.  **Smart Responses**: Generating contextual, human-like responses based on the match score.
 
 ## 🏗️ Architecture
 
+The system follows a **RAG-first approach** to ensure contextual accuracy and optimal performance without the immediate need for fine-tuning. This strategy prioritizes context-aware prompt engineering over model specialization.
+
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Web Interface │    │  State Manager  │    │   RAG Pipeline  │
-│   (Gradio)      │◄──►│  (Conversation  │◄──►│  (Vector DB +   │
-│                 │    │   States)       │    │   Retrieval)    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                                │
-                                ▼
-                       ┌─────────────────┐
-                       │  Fine-tuned LLM │
-                       │  (LoRA + Open   │
-                       │   Source Model) │
-                       └─────────────────┘
+┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐
+│  Web Interface  │◄───►│  State Manager  │◄───►│   RAG Pipeline  │
+│    (Gradio)     │      │ (Conversation)  │      │ (FAISS VectorDB)│
+└─────────────────┘      └─────────────────┘      └─────────────────┘
+         ▲                                                 │
+         │                                                 ▼
+┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐
+│  User/Recruiter │      │ Prompt Engineer │◄───►│  Retrieved Docs │
+└─────────────────┘      └─────────────────┘      └─────────────────┘
+         │                         ▲                       ▲
+         └─────────────────────────┼───────────────────────┘
+                                   ▼
+                          ┌─────────────────┐
+                          │   Base LLM      │
+                          │ (No Fine-tuning)│
+                          └─────────────────┘
 ```
 
 ## 🚀 Quick Start
 
 ### 1. Setup Environment
 ```bash
-# Install dependencies
 pip install -r requirements.txt
 ```
 
@@ -43,7 +48,7 @@ pip install -r requirements.txt
 ### 3. Run the Notebook
 ```bash
 # Open the Jupyter notebook
-jupyter notebook ai_recruiter_assistant.ipynb
+jupyter notebook ai_recruiter_assistant_colab.ipynb
 ```
 
 ## 📊 Conversation Flow
@@ -62,73 +67,90 @@ jupyter notebook ai_recruiter_assistant.ipynb
 ## 🛠️ Technical Stack
 
 ### Core Technologies
-- **LLM**: Mistral-7B-Instruct-v0.2 (open-source)
-- **Fine-tuning**: LoRA (Low-Rank Adaptation)
+- **LLM**: Multiple model options (Mistral-7B, Llama-3-8B, Phi-3-mini, Gemma-2-9B)
+- **Strategy**: RAG-first approach with advanced prompt engineering
 - **RAG**: FAISS vector database + sentence transformers
 - **Framework**: LangChain for orchestration
 - **Interface**: Gradio web application
 
+### Model Selection
+We benchmark **4 open-source models** to select the best performer for our RAG-based approach:
+
+| Model | Size | Context | Multimodal | Description |
+|-------|------|---------|------------|-------------|
+| **Mistral-7B-Instruct-v0.2** | 7B | 32K | 📝 No | Efficient instruction-following |
+| **Meta-Llama-3-8B-Instruct** | 8B | 8K | 📝 No | Strong reasoning capabilities |
+| **Microsoft/Phi-3-mini-4k** | 3.8B | 4K | 📝 No | Lightweight, fast inference |
+| **Google/Gemma-2-9B-IT** | 9B | 8K | 📝 No | Google's efficient instruction-tuned |
+
 ### Key Libraries
 - `transformers`: Hugging Face transformers
-- `peft`: Parameter-Efficient Fine-Tuning
 - `langchain`: LLM orchestration
 - `faiss-cpu`: Vector similarity search
+- `sentence-transformers`: Embedding generation
 - `gradio`: Web interface
 
 ## 📁 Project Structure
 
 ```
 AI_Recruiter_Assistant/
-├── ai_recruiter_assistant.ipynb    # Main notebook
-├── requirements.txt                 # Dependencies
-├── README.md                       # This file
+├── ai_recruiter_assistant_colab.ipynb # Main notebook
+├── requirements.txt                    # Dependencies
+├── README.md                          # This file
+├── PROJECT_SUMMARY.md                 # Development status
 ├── RAG/
-│   ├── cv.md                      # Your CV/resume
-│   └── job_expectations.md        # Job preferences
-└── data/
-    └── linkedin_messages.csv      # Training data
+│   ├── cv.md                         # Your CV/resume
+│   └── job_expectations.md           # Job preferences
+├── data/
+│   └── linkedin_messages.csv         # Historical data
+└── notebooks/                        # Development iterations
+    └── *.ipynb                       # Version history
 ```
 
-## 🔧 Development Plan (1 Week)
+## 🔧 Development Plan (RAG-First Approach)
 
-### Day 1-2: Foundation
+### Day 1-2: Foundation ✅ COMPLETED
 - [x] Environment setup
 - [x] Data loading and processing
 - [x] RAG pipeline implementation
 - [x] Vector database creation
 
-### Day 3-4: Fine-tuning
-- [ ] LinkedIn messages processing
-- [ ] LoRA fine-tuning implementation
-- [ ] Model training and validation
+### Day 3-4: Model Selection & Optimization 🔄 CURRENT
+- [x] LLM model benchmarking
+- [x] Performance comparison
+- [x] Model selection and optimization
+- [x] Cache management setup
 
-### Day 5-6: Core Logic
-- [ ] Intent detection system
-- [ ] Match scoring algorithm
-- [ ] State management
-- [ ] Response generation
+### Day 5-6: Prompt Engineering & Logic 📋 NEXT
+- [x] Context-aware prompt design
+- [ ] Intent detection enhancement
+- [ ] Match scoring refinement
+- [ ] Response generation optimization
 
-### Day 7: Integration
+### Day 7: Integration & Testing 🚀 FINAL
 - [ ] Gradio interface
 - [ ] End-to-end testing
+- [ ] Performance optimization
 - [ ] Deployment and documentation
 
 ## 🎯 Features
 
 ### ✅ Implemented
 - Document loading and processing
-- RAG pipeline with vector database
+- RAG pipeline with FAISS vector database
 - State management system
-- Intent detection (basic)
+- Basic intent detection
 - Match scoring algorithm
 - Response generation templates
+- Model benchmarking infrastructure
 
 ### 🚧 In Progress
-- LLM loading and fine-tuning
-- Advanced intent detection
-- Gradio web interface
+- Model selection and optimization
+- Advanced prompt engineering
+- Context-aware retrieval
 
-### 🔮 Future Enhancements
+### 🔮 Future Enhancements (Post-RAG Optimization)
+- Fine-tuning with QLoRA (when performance plateau is reached)
 - Google Calendar integration
 - Advanced conversation memory
 - Multi-language support
@@ -139,9 +161,10 @@ AI_Recruiter_Assistant/
 1. **Open the notebook** in Google Colab
 2. **Run all cells** to set up the environment
 3. **Load your data** (CV, expectations, LinkedIn messages)
-4. **Fine-tune the model** with your conversational style
-5. **Launch the Gradio interface** for testing
-6. **Deploy** for production use
+4. **Select optimal model** based on benchmark results
+5. **Test prompt engineering** with RAG retrieval
+6. **Launch the Gradio interface** for testing
+7. **Deploy** for production use
 
 ## 📈 Performance Metrics
 
@@ -149,6 +172,7 @@ AI_Recruiter_Assistant/
 - **Match Accuracy**: 85%+ (target)
 - **Memory Usage**: Optimized for Colab free tier
 - **Model Size**: ~4GB (quantized)
+- **RAG Retrieval**: < 1 second
 
 ## 🔒 Privacy & Security
 
@@ -156,6 +180,17 @@ AI_Recruiter_Assistant/
 - No external API calls required
 - Open-source model ensures transparency
 - No data sent to third parties
+
+## 🎓 Development Methodology
+
+This project follows a **4-stage Generative AI lifecycle**:
+
+1. **Define the Scope** ✅ - Problem identification and requirements
+2. **Select Models** 🔄 - Benchmark and choose optimal LLM
+3. **Adapt & Align** 📋 - RAG optimization and prompt engineering
+4. **Application Integration** 🚀 - Deploy and test complete system
+
+**Current Strategy**: RAG-first approach with fine-tuning postponed to future iterations, focusing on maximizing base model potential through advanced context retrieval and prompt engineering.
 
 ## 📞 Support
 
