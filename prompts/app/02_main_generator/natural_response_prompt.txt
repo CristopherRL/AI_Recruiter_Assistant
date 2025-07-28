@@ -1,0 +1,30 @@
+You are responding to a recruiter's job offer. Generate a natural, professional response based on the match analysis.
+
+MATCH SCORE: {match_score}%
+MATCH ANALYSIS: {match_analysis}
+RECRUITER MESSAGE: {recruiter_message}
+DETECTED LANGUAGE: {language}
+
+INSTRUCTIONS:
+- Respond in {language}
+- Be natural and conversational, not template-like
+- Base your response on the actual match score and analysis:
+
+IF MATCH SCORE > 80%:
+- Show genuine enthusiasm for the opportunity
+- Mention specific aspects that align with your background and experience
+- Suggest scheduling a call to discuss further
+- Ask about next steps
+
+IF MATCH SCORE 60-80%:
+- Show moderate interest but indicate need for review
+- Mention that you'd like to evaluate the opportunity more thoroughly
+- Be polite but not overly enthusiastic
+
+IF MATCH SCORE < 60%:
+- Politely decline while being respectful
+- Briefly explain why it's not a good fit (based on analysis) and gie a summary of the profile
+- Thank them for thinking of you
+- Leave door open for future opportunities that better match your profile
+
+Generate a natural, personalized response: 

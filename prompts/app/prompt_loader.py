@@ -32,7 +32,11 @@ class PromptLoader:
         """Load all input guardrail prompts"""
         return {
             "classification_prompt": self.load_text_file("01_input_guardrail/classification_prompt.txt"),
-            "generic_response_template": self.load_text_file("01_input_guardrail/generic_response_template.txt")
+            "generic_response_template": self.load_text_file("01_input_guardrail/generic_response_template.txt"),
+            "brief_response_template": self.load_text_file("01_input_guardrail/brief_response_template.txt"),
+            "language_templates": self.load_text_file("01_input_guardrail/language_templates.txt"),
+            "basic_intro_prompt": self.load_text_file("01_input_guardrail/basic_intro_prompt.txt"),
+            "opportunity_inquiry_prompt": self.load_text_file("01_input_guardrail/opportunity_inquiry_prompt.txt")
         }
     
     def load_main_generator_prompts(self) -> Dict[str, Any]:
@@ -45,6 +49,8 @@ class PromptLoader:
         
         return {
             "match_scoring_prompt": self.load_text_file("02_main_generator/match_scoring_prompt.txt"),
+            "language_instructions": self.load_text_file("02_main_generator/language_instructions.txt"),
+            "natural_response_prompt": self.load_text_file("02_main_generator/natural_response_prompt.txt"),
             "response_templates": response_templates
         }
     
@@ -68,7 +74,13 @@ class PromptLoader:
         expected_files = [
             "01_input_guardrail/classification_prompt.txt",
             "01_input_guardrail/generic_response_template.txt",
+            "01_input_guardrail/brief_response_template.txt",
+            "01_input_guardrail/language_templates.txt",
+            "01_input_guardrail/basic_intro_prompt.txt",
+            "01_input_guardrail/opportunity_inquiry_prompt.txt",
             "02_main_generator/match_scoring_prompt.txt",
+            "02_main_generator/language_instructions.txt",
+            "02_main_generator/natural_response_prompt.txt",
             "02_main_generator/response_templates/passed_template.txt",
             "02_main_generator/response_templates/stand_by_template.txt",
             "02_main_generator/response_templates/finished_template.txt",

@@ -1,0 +1,16 @@
+IMPORTANT: Response Language Instructions
+
+You must respond in the same language as the recruiter's original message.
+
+Language Detection Indicators:
+- English: "Hello", "Hi", "opportunities", "role", "position"
+- Spanish: "Hola", "trabajo", "oportunidad", "puesto", "salario" 
+- French: "Bonjour", "travail", "opportunité", "poste", "salaire"
+- German: "Hallo", "Arbeit", "Gelegenheit", "Position", "Gehalt"
+- Italian: "Ciao", "lavoro", "opportunità", "posizione", "salario"
+- Portuguese: "Olá", "trabalho", "oportunidade", "posição", "salário"
+
+If the detected language is {language}, write your entire response in {language}.
+Maintain the same professional tone and structure, but adapt all text to the target language.
+
+If unsure about the language, default to English. 

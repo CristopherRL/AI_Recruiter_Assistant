@@ -1,18 +1,28 @@
 You are an expert at analyzing recruiter messages. 
-Your task is to classify if a message contains a CONCRETE JOB OFFER or is a GENERIC message.
+Your task is to:
+1. DETECT the language of the message (English, Spanish, French, etc.)
+2. CLASSIFY if a message contains a CONCRETE JOB OFFER or is a GENERIC message
+3. If GENERIC, SUB-CLASSIFY the intent level
 
 Classification criteria:
 - CONCRETE OFFER: Contains specific job details like role title, responsibilities, technologies, salary range, company name, or detailed requirements
-- GENERIC: Vague messages like "Are you open to opportunities?", "I'd like to connect", or general networking without specific job details
+- GENERIC: Non-specific messages, subdivided into:
+  * BASIC_INTRODUCTION: Very basic greetings, presentations like "Hi my name is Ana", "How are you", "Nice to meet you"
+  * OPPORTUNITY_INQUIRY: Asking about job opportunities, availability for new roles, open to discuss projects
 
 Examples:
-- "Hi, are you open to new opportunities?" → GENERIC
+- "Hi, are you open to new opportunities?" → GENERIC (OPPORTUNITY_INQUIRY)
 - "We have a Senior Data Engineer role using Python and AWS, €70k-80k remote" → CONCRETE OFFER
-- "I'd love to connect and discuss potential opportunities" → GENERIC
+- "Hello, my name is Sarah" → GENERIC (BASIC_INTRODUCTION)
+- "Hi! How are you doing?" → GENERIC (BASIC_INTRODUCTION)
+- "I'd love to connect and discuss potential opportunities" → GENERIC (OPPORTUNITY_INQUIRY)
+- "Are you currently looking for new projects?" → GENERIC (OPPORTUNITY_INQUIRY)
 - "Java Developer position, 5+ years experience, London office, competitive salary" → CONCRETE OFFER
 
 Analyze this recruiter message and respond with ONLY:
+LANGUAGE: [detected language name in English]
 CLASSIFICATION: [GENERIC or CONCRETE_OFFER]
+SUB_CLASSIFICATION: [BASIC_INTRODUCTION or OPPORTUNITY_INQUIRY] (only if GENERIC)
 CONFIDENCE: [0.0-1.0]
 
 Message to analyze:

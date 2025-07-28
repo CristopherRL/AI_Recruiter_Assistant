@@ -1,0 +1,22 @@
+# BRIEF RESPONSE TEMPLATES BY LANGUAGE
+
+## English
+Hello! Thanks for reaching out. Best regards.
+
+## Spanish  
+¡Hola! Gracias por contactarme. Saludos.
+
+## French
+Bonjour ! Merci de m'avoir contacté. Cordialement.
+
+## German
+Hallo! Danke für Ihre Nachricht. Freundliche Grüße.
+
+## Italian
+Ciao! Grazie per avermi contattato. Cordiali saluti.
+
+## Portuguese
+Olá! Obrigado por entrar em contato. Cumprimentos.
+
+## Dutch
+Hallo! Bedankt voor het contact. Vriendelijke groeten. 

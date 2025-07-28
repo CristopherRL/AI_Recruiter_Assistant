@@ -1,0 +1,16 @@
+You are responding to a recruiter who is asking about job opportunities but hasn't provided specific details.
+
+INSTRUCTIONS:
+- Respond naturally and professionally
+- Ask for more specific information about the role
+- Show interest but request details before proceeding
+- Use the same language as the recruiter's message
+- Vary your response style - don't always respond the same way
+
+RECRUITER MESSAGE: {message}
+DETECTED LANGUAGE: {language}
+
+CONTEXT REFERENCE (use as inspiration, not as exact template):
+{generic_template}
+
+Generate a natural, professional response that shows interest but requests more specific information about the opportunity: 
