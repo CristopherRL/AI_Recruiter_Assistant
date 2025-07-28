@@ -43,7 +43,6 @@ pip install -r requirements.txt
 ### 2. Prepare Your Data
 - Ensure `cv.md` contains your CV/resume
 - Ensure `job_expectations.md` contains your job preferences
-- Place LinkedIn messages in `data/linkedin_messages.csv`
 
 ### 3. Run the Notebook
 ```bash
@@ -101,8 +100,6 @@ AI_Recruiter_Assistant/
 ├── RAG/
 │   ├── cv.md                         # Your CV/resume
 │   └── job_expectations.md           # Job preferences
-├── data/
-│   └── linkedin_messages.csv         # Historical data
 └── notebooks/                        # Development iterations
     └── *.ipynb                       # Version history
 ```
@@ -165,7 +162,7 @@ AI_Recruiter_Assistant/
 
 1. **Open the notebook** in Google Colab
 2. **Run all cells** to set up the environment
-3. **Load your data** (CV, expectations, LinkedIn messages)
+3. **Load your data** (CV, expectations)
 4. **Select optimal model** based on benchmark results
 5. **Test prompt engineering** with RAG retrieval
 6. **Implement guardrails** for safety and formatting
